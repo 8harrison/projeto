@@ -44,13 +44,13 @@ class UserService {
     }
   }
   
-  public async create(product: User): Promise<User> {
-    const isValidUser = UserService.validationProduct(product);
+  public async create(user: User): Promise<User> {
+    const isValidUser = UserService.validationProduct(user);
     if (typeof isValidUser === 'string') {
       // aqui estamos jogando o erro para o nosso middleware de erro fazer o tratamento e dar a resposta da requisição
       throw new BadRequestError(isValidUser);
     }
-    const createdProduct = await this.model.create(product);
+    const createdProduct = await this.model.create(user);
     return createdProduct;
   }
 }

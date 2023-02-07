@@ -8,7 +8,7 @@ const jwtConfig: object = {
   algorithm: 'HS256',
 };
 
-const secret: any = process.env.JWT_SECRET;
+const secret: string = process.env.JWT_SECRET || 'qualquercoisa';
 
 class UserController {
   constructor(private userService = new UserService()) {
